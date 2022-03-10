@@ -5,7 +5,7 @@ const store = useStore()
 </script>
 
 <template>
-  <div class="hello">
+  <div>
     <h1>{{ msg }}</h1>
     <button @click="store.setNumberSelected(4)">4</button>
     <button @click="store.setNumberSelected(6)">6</button>

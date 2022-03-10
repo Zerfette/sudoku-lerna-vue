@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useStore} from '../store'
+import {useStore} from '~/store'
 const msg = 'HELLO WORLD'
 const store = useStore()
 </script>

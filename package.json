@@ -14,6 +14,7 @@
     "fp-ts": "^2.11.8",
     "monocle-ts": "^2.3.12",
     "pinia": "^2.0.11",
+    "theme": "^1.0.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -21,6 +22,7 @@
     "@vue/cli-plugin-typescript": "~4.5.13",
     "@vue/cli-service": "~4.5.13",
     "@vue/compiler-sfc": "^3.0.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "typescript": "~4.1.5"
   },
   "eslintConfig": {

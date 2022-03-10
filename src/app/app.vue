@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toggleColorMode } from '~/colorMode';
-import Board from './board/index.vue'
+import Board from './board/board.vue'
 import {style} from './style'
 </script>
 

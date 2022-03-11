@@ -3,7 +3,9 @@ import Board from './board/board.vue'
 import Controls from './controls/controls.vue'
 import { style } from './style'
 import { useModel } from './model'
+import { useAutoSolve } from './autoSolve'
 
+useAutoSolve()
 const { onMouseDown, onMouseUp } = useModel()
 </script>
 

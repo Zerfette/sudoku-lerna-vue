@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { CSSProperties } from 'vue'
 import { space } from 'theme'
 import {
   // AutoSolve,
@@ -12,13 +11,13 @@ import {
 import { size } from '../board/style'
 import { useStopwatch } from './stopwatch'
 
-const root: CSSProperties = {
+const root = {
   display: 'flex',
   width: size,
   'justify-content': 'space-between'
 }
 
-const buttonRow: CSSProperties = {
+const buttonRow = {
   margin: space[1],
   display: 'flex'
 }

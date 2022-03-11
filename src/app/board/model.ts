@@ -1,3 +1,17 @@
+import { mouseOutsideLens } from 'core/optics'
+import { useStore } from '~/store'
+
+export const useModel = () => {
+  const store = useStore()
+  return <const>{
+    onMouseOver: () =>
+      store.setToggle({ lens: mouseOutsideLens, value: false }),
+    
+    onMouseOut: () =>
+      store.setToggle({ lens: mouseOutsideLens, value: true })
+  }
+}
+
 export const regionIndicies = [
   [0, 1, 2, 9, 10, 11, 18, 19, 20],
   [3, 4, 5, 12, 13, 14, 21, 22, 23],

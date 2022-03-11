@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { toggleColorMode } from '~/colorMode'
 import Board from './board/board.vue'
 import Controls from './controls/controls.vue'
 import { style } from './style'
@@ -12,7 +11,6 @@ const { onMouseDown, onMouseUp } = useModel()
   <div :style="style" @mousedown="onMouseDown" @mouseup="onMouseUp">
     <Controls />
     <Board />
-    <button @click="toggleColorMode">color mode</button>
   </div>
 </template>
 

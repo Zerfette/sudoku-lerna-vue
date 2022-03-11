@@ -4,7 +4,4 @@ import { margin } from './region/cell/style'
 
 export const size = `calc(3 * ${regionSize} + 6 * ${margin})`
 
-export const style: CSSProperties = {
-  width: size,
-  height: size
-}
+export const style: CSSProperties = { width: size, height: size }

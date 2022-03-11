@@ -2,21 +2,21 @@ import { ComputedRef, computed, CSSProperties } from 'vue'
 import { colors, fontSizes, lineHeights, radii, space } from 'theme'
 import { colorModeValue } from '~/colorMode'
 
-type GetStyle = () => Record<string, ComputedRef<CSSProperties>>
+type GetStyle = () => ComputedRef<Record<string, CSSProperties>>
 export const getStyle: GetStyle = () => {
   const background = colorModeValue(colors.gray[300], colors.gray[700])
   const color = colorModeValue(colors.black, colors.white)
-  return {
-    root: computed(() => ({ display: 'flex', 'align-items': 'center' })),
-    paragraph: computed(() => ({
+  return computed(() => ({
+    root: { display: 'flex', 'align-items': 'center' },
+    paragraph: {
       'line-height': lineHeights.none,
       'font-size': fontSizes['4xl'],
       color: color.value,
       margin: '0',
       'margin-left': space['0.5'],
       'margin-bottom': space['1']
-    })),
-    button: computed(() => ({
+    },
+    button: {
       cursor: 'pointer',
       'border-radius': radii.md,
       width: space['7'],
@@ -27,6 +27,6 @@ export const getStyle: GetStyle = () => {
       display: 'flex',
       'justify-content': 'center',
       'align-items': 'center'
-    }))
-  }
+    }
+  }))
 }

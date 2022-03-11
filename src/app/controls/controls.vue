@@ -1,33 +1,20 @@
 <script setup lang="ts">
-import { space } from 'theme'
-import {
-  // AutoSolve,
-  // ColorModeButton,
-  // Edit,
-  // Help,
-  // StartOver,
-  Timer
-} from './components'
-import { size } from '../board/style'
+import { AutoSolve, ColorMode, Edit, Help, Reset, Timer } from './components'
 import { useStopwatch } from './stopwatch'
-
-const root = {
-  display: 'flex',
-  width: size,
-  'justify-content': 'space-between'
-}
-
-const buttonRow = {
-  margin: space[1],
-  display: 'flex'
-}
+import { style } from './style'
 
 const stopwatch = useStopwatch()
 </script>
 
 <template>
-  <div :style="root">
+  <div :style="style.root">
     <Timer :stopwatch="stopwatch" />
-    <div :style="buttonRow"></div>
+    <div :style="style.buttonRow">
+      <Reset />
+      <Edit />
+      <AutoSolve />
+      <ColorMode />
+      <Help />
+    </div>
   </div>
 </template>

@@ -10,13 +10,19 @@ defineProps({
     required: true
   }
 })
-const { button, root, paragraph } = getStyle()
+const style = getStyle()
 </script>
 
 <template>
-  <div :style="root">
-    <p :style="paragraph">{{ getTimerText(stopwatch.elapsedTime.value) }}</p>
-    <div :style="button" @click="stopwatch.toggleTimer">t</div>
-    <div :style="button" @click="stopwatch.resetTimer">r</div>
+  <div :style="style.root">
+    <p :style="style.paragraph">
+      {{ getTimerText(stopwatch.elapsedTime.value) }}
+    </p>
+    <div :style="style.button" @click="stopwatch.toggleTimer">
+      <font-awesome-icon :icon="stopwatch.isRunning.value ? 'pause' : 'play'" />
+    </div>
+    <div :style="style.button" @click="stopwatch.resetTimer">
+      <font-awesome-icon icon="undo-alt" />
+    </div>
   </div>
 </template>

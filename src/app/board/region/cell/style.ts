@@ -1,4 +1,4 @@
-import { CSSProperties, ComputedRef } from 'vue'
+import { CSSProperties } from 'vue'
 import { noConflicts } from 'core'
 import { Cell } from 'core/types'
 import { colors, fontSizes, radii, space } from 'theme'

@@ -5,6 +5,7 @@ import { fold, isSome } from 'fp-ts/Option'
 import { toggleColorMode } from '~/colorMode'
 import { useStore } from '~/store'
 import Board from './board/board.vue'
+import Controls from './controls/controls.vue'
 import { style } from './style'
 import { isValue } from './model'
 
@@ -42,6 +43,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 
 <template>
   <div :style="style" @mousedown="onMouseDown" @mouseup="onMouseUp">
+    <Controls />
     <Board />
     <button @click="toggleColorMode">color mode</button>
   </div>

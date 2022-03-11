@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { getTimerText } from 'core'
+import { getTimerText } from 'core/stopwatch'
 import { Stopwatch } from '../../stopwatch'
 import { getStyle } from './style'
 

@@ -1,19 +1,8 @@
 import { computed, onUnmounted, ref, Ref, watchEffect } from 'vue'
-import { getMonoid as getArrayMonoid } from 'fp-ts/Array'
+import { arrayOptionMonoid, getPrevTotal, Laps } from 'core/stopwatch'
 import { fold as boolFold } from 'fp-ts/boolean'
-import { constant, pipe } from 'fp-ts/function'
 import { IO } from 'fp-ts/IO'
-import { concatAll } from 'fp-ts/Monoid'
-import { MonoidSum } from 'fp-ts/number'
-import {
-  fold as optFold,
-  getMonoid as getOptionMonoid,
-  none,
-  Option,
-  some
-} from 'fp-ts/Option'
-
-const arrayOptionMonoid = pipe(getArrayMonoid<number>(), getOptionMonoid)
+import { fold as optFold, none, some } from 'fp-ts/Option'
 
 const useTimer = () => {
   const isRunning = ref(false)
@@ -32,8 +21,6 @@ const useTimer = () => {
   return { isRunning, elapsedTime }
 }
 
-type Laps = Option<number[]>
-
 export type Stopwatch = {
   elapsedTime: Ref<number>
   laps: Ref<Laps>
@@ -46,7 +33,7 @@ export type Stopwatch = {
 }
 
 export const useStopwatch: IO<Stopwatch> = () => {
-  const laps: Ref<Option<number[]>> = ref(none)
+  const laps: Ref<Laps> = ref(none)
   const { isRunning, elapsedTime } = useTimer()
 
   const resetTimer = () => {
@@ -56,11 +43,9 @@ export const useStopwatch: IO<Stopwatch> = () => {
   }
 
   const addLap = () => {
-    const prevTotal = optFold(constant(0), concatAll(MonoidSum))(laps.value)
-    const currentLap = optFold(
-      constant(elapsedTime.value),
-      constant(elapsedTime.value - prevTotal)
-    )(laps.value)
+    const onNone = () => elapsedTime.value
+    const onSome = () => elapsedTime.value - getPrevTotal(laps.value)
+    const currentLap = optFold(onNone, onSome)(laps.value)
 
     if (isRunning.value)
       laps.value = arrayOptionMonoid.concat(laps.value, some([currentLap]))

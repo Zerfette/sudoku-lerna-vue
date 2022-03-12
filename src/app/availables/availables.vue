@@ -15,18 +15,22 @@ const defaultText = computed(() => fold(onNone, onSome)(store.selection))
 </script>
 <template>
   <div :style="style">
-    <p v-if="isNonEmpty(store.availables.cell)">
-      <Row :availables="store.availables.cell" />
-    </p>
-    <p v-else-if="isNonEmpty(store.availables.row)">
-      <Row :availables="store.availables.row" />
-    </p>
-    <p v-else-if="isNonEmpty(store.availables.col)">
-      <Row :availables="store.availables.col" />
-    </p>
-    <p v-else-if="isNonEmpty(store.availables.reg)">
-      <Row :availables="store.availables.reg" />
-    </p>
+    <Row
+      v-if="isNonEmpty(store.availables.cell)"
+      :availables="store.availables.cell"
+    />
+    <Row
+      v-else-if="isNonEmpty(store.availables.row)"
+      :availables="store.availables.row"
+    />
+    <Row
+      v-else-if="isNonEmpty(store.availables.col)"
+      :availables="store.availables.col"
+    />
+    <Row
+      v-else-if="isNonEmpty(store.availables.reg)"
+      :availables="store.availables.reg"
+    />
     <p v-else :style="{ 'font-size': fontSizes.xl }">
       {{ defaultText }}
     </p>

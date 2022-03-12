@@ -11,7 +11,5 @@ defineProps({
 })
 </script>
 <template>
-  <div :style="{ display: 'flex', 'justify-content': 'center', 'align-items': 'center', margin: 0 }">
     <Number v-for="n in range(1, 9)" :i="n" :key="n" :availables="availables"/>
-  </div>
 </template>

@@ -3,7 +3,7 @@ import { colors, fontSizes, radii, space } from 'theme'
 import { colorModeValue } from '~/colorMode'
 
 export const useStyle = (): ComputedRef<Record<string, CSSProperties>> => {
-  const onBackground = colorModeValue(colors.purple[100], colors.purple[600])
+  const onBackground = colorModeValue(colors.purple[300], colors.purple[600])
   const onColor = colorModeValue(colors.black, colors.white)
   const offBackground = colorModeValue(colors.gray[100], colors.gray[600])
   const offColor = colorModeValue(colors.gray[300], colors.gray[700])

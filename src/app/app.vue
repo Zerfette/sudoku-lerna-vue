@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Availables from './availables/availables.vue'
 import Board from './board/board.vue'
 import Controls from './controls/controls.vue'
 import { style } from './style'
@@ -13,6 +14,7 @@ const { onMouseDown, onMouseUp } = useModel()
   <div :style="style" @mousedown="onMouseDown" @mouseup="onMouseUp">
     <Controls />
     <Board />
+    <Availables/>
   </div>
 </template>
 
